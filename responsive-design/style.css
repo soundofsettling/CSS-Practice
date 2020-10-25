@@ -3,9 +3,6 @@ body {
   padding: 0;
 }
 
-/*=============================
-    default grid set up -> mobile first
-  ===============================*/
 body {
   display: grid;
   min-height: 100vh;
@@ -15,6 +12,9 @@ body {
   grid-template-areas:
     "content"
     "footer";
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8em;
+  color: #222;
 }
 
 .main {
@@ -23,7 +23,7 @@ body {
 }
 
 .footer {
-  background-color: #c0392b;
+  background-color: royalblue;
   grid-area: footer;
 }
 
@@ -32,13 +32,96 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-color: #7f8c8d;
-  color: rgba(255,255,255,0.8);
+  background-color: #f2f2f2;
   grid-area: sidebar;
 }
 
 .aside i {
   display: none;
+}
+
+/* name the grid areas */
+.main_header > .img {
+  grid-area: img;
+}
+.main_header > .header-details {
+  grid-area: dtls;
+}
+
+.main_header {
+  display: grid;
+  background-color: #4e4e4e;
+  color: rgba(255,255,255,0.9);
+  grid-template-areas: "img"
+                       "dtls"; 
+}
+
+.header-details {
+	display: flex;
+	flex-direction: column;
+	font-weight: 300;
+	color: #fff;
+	padding-left: 50px;  
+}
+
+.header-details div:nth-child(1){
+	margin-bottom: auto;
+}
+
+.header-details div:nth-child(2){
+	margin-top: 0;
+}
+
+.header-details div:nth-child(2) i.fa{
+	font-size: 0.9rem;
+	padding: 0 0.7rem;
+	font-weight: 300;
+}
+
+.header-details div:nth-child(1) p:first-child{
+	font-size: 1.8rem;
+	margin: 0 0 10px;
+}
+
+.header-details div:nth-child(1) p:not(:first-child){
+	font-size: 0.9rem;
+	margin: 2px 0;
+}
+
+.main_body {
+  padding: 8px;
+  background-color: #fff;
+}
+
+.main_body > div {
+  padding: 8px;
+  display:flex;
+}
+
+.main_body > div:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+
+.main_body > div p{
+  flex: 0 0 25%;
+}
+
+@media screen and (max-width: 600px) {
+  .main_header {
+    justify-items: center;
+  } 
+  .main_header > .header-details {
+    text-align: center;
+  }  
+  .sm--hide {
+    display: none;
+  } 
+  .img > img {
+    width: 150px
+  }
+  .main_body > div p{
+    flex: 0 0 50%;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -52,4 +135,9 @@ body {
       "sidebar  content"
       "footer  footer";
   }
+
+  .main_header {
+    grid-template-columns: 250px 1fr;
+    grid-template-areas: "img dtls"
+  } 
 }
