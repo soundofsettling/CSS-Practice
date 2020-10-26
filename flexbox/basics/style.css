@@ -1,0 +1,28 @@
+ul {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    padding: 0;
+    list-style: none;
+    background-color: #e8e8e9;
+    align-items: baseline;
+}
+
+li {
+    background-color: #8cacea;
+    width: 100px;
+    margin: 8px;
+    padding: 4px;
+}
+
+li:nth-child(1){
+    order: 1;
+}
+
+li:nth-child(2){
+    order: 2;
+}
+
+li:not(:first-child){
+    font-size: 10em;
+}
